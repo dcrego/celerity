@@ -1,0 +1,2 @@
+/resources/ssl/*.pem
+/resources/ssl/passphrase.txt
