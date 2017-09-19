@@ -1,4 +1,8 @@
 {
+  "ports" : {
+    "http": 80,
+    "https": 443
+  },
   "ssl-options": {
     "passphrase": "resources/ssl/passphrase.txt",
     "cert": "resources/ssl/cert.pem",
