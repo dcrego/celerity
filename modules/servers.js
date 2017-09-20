@@ -1,10 +1,12 @@
 // Requires
 const fs = require('fs'); // https://nodejs.org/api/fs.html
+const logging = require('./logging');
 const ssl = require('./ssl');
 // Constants
 const ERROR_CODE = 500;
 const ERROR_HEADERS = {'Content-Type': 'text/plain'};
 const ERROR_BODY = 'Error, please reload this page (F5) after a while. Thank you!';
+const LOG = new logging.Logger('modules/servers.js');
 const SERVER_FACTORIES = {
   // protocol: serverFactory,
   http: require('http').createServer // https://nodejs.org/api/http.html
@@ -21,7 +23,7 @@ exports.Server = function (name, config) {
   function handleRequest (req, res) {
     fs.readFile(content.bodyPath, (err, data)=>{
       if (err) {
-        console.log(new Date(), err);
+        LOG.error(err);
         res.writeHead(ERROR_CODE, ERROR_HEADERS);
         res.end(ERROR_BODY);
       } else {
@@ -33,7 +35,7 @@ exports.Server = function (name, config) {
   this.listen = function (callback) {
     if (!callback) {
       callback = function () {
-        console.log(new Date(), config.protocol+' server ('+name+') running on port '+config.port);
+        LOG.log(config.protocol+' server ('+name+') running on port '+config.port);
       }
     }
     SERVER_FACTORIES[config.protocol](handleRequest).listen(config.port, callback);
