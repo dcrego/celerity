@@ -1,12 +1,12 @@
 // Requires
-const fs = require('fs');       // https://nodejs.org/api/fs.html
+const fs = require('fs'); // https://nodejs.org/api/fs.html
 const ssl = require('./ssl');
 // Constants
 const ERROR_CODE = 500;
 const ERROR_HEADERS = {'Content-Type': 'text/plain'};
 const ERROR_BODY = 'Error, please reload this page (F5) after a while. Thank you!';
 const SERVER_FACTORIES = {
-  // protocol: factory
+  // protocol: serverFactory,
   http: require('http').createServer // https://nodejs.org/api/http.html
 }
 // Functions
@@ -33,7 +33,7 @@ exports.Server = function (name, config) {
   this.listen = function (callback) {
     if (!callback) {
       callback = function () {
-        console.log(new Date(), config.protocol, 'server running on port', config.port);
+        console.log(new Date(), config.protocol+' server ('+name+') running on port '+config.port);
       }
     }
     SERVER_FACTORIES[config.protocol](handleRequest).listen(config.port, callback);

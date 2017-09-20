@@ -1,6 +1,6 @@
 // Requires
 const fs = require('fs');
-const config = require('../resources/json/config.json')['ssl-options'];
+const config = require('../resources/json/config.json').sslConfig;
 exports.options = {
   cert: fs.readFileSync(config.cert),
   key: fs.readFileSync(config.key),
