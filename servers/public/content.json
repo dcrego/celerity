@@ -1,5 +1,12 @@
 {
-  "statusCode": 200,
-  "headers": {"Content-Type": "text/html"},
-  "bodyPath": "servers/public/public.html"
+  "/": {
+    "statusCode": 200,
+    "headers": {"Content-Type": "text/html"},
+    "bodyPath": "servers/public/public.html"
+  },
+  "/favicon": {
+    "statusCode": 200,
+    "headers": {"Content-Type": "image/png"},
+    "bodyPath": "servers/public/favicon.png"
+  }
 }

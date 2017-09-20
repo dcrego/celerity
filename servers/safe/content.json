@@ -1,5 +1,7 @@
 {
-  "statusCode": 200,
-  "headers": {"Content-Type": "text/html"},
-  "bodyPath": "servers/safe/safe.html"
+  "/": {
+    "statusCode": 200,
+    "headers": {"Content-Type": "text/html"},
+    "bodyPath": "servers/safe/safe.html"
+  }
 }

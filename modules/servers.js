@@ -17,15 +17,15 @@ exports.Server = function (name, config) {
   this.name = name;
   this.protocol = config.protocol;
   this.port = config.port;
-  var content = require(`../servers/${this.name}/content.json`);
+  var contents = require(`../servers/${this.name}/content.json`);
   function handleRequest (req, res) {
-    fs.readFile(content.bodyPath, (err, data)=>{
+    fs.readFile(contents["/"].bodyPath, (err, data)=>{
       if (err) {
         console.log(new Date(), err);
         res.writeHead(ERROR_CODE, ERROR_HEADERS);
         res.end(ERROR_BODY);
       } else {
-        res.writeHead(content.statusCode, content.headers);
+        res.writeHead(contents["/"].statusCode, contents["/"].headers);
         res.end(data);
       }
     });
