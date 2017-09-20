@@ -4,4 +4,4 @@ A fast web app server.
 In this folder you can find:
 * index.json - A list of configured servers.
 * <serverName>/ - One folder for each server.
-  * content.json - Inside each server folder defines the content shown by that server.
+  * contents.json - Inside each server folder defines the content shown by that server.

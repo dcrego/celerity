@@ -17,7 +17,7 @@ exports.Server = function (name, config) {
   this.name = name;
   this.protocol = config.protocol;
   this.port = config.port;
-  var contents = require(`../servers/${this.name}/content.json`);
+  var contents = require(`../servers/${this.name}/contents.json`);
   function handleRequest (req, res) {
     fs.readFile(contents["/"].bodyPath, (err, data)=>{
       if (err) {
