@@ -1,3 +1,4 @@
+console.clear();
 console.log(new Date(), 'Initializing server');
 // Requires
 const srv = require('./modules/servers');
