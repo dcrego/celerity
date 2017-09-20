@@ -1,0 +1,5 @@
+{
+  "statusCode": 200,
+  "headers": {"Content-Type": "text/html"},
+  "bodyPath": "resources/html/private.html"
+}

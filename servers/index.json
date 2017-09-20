@@ -1,0 +1,10 @@
+{
+  "public": {
+    "protocol": "http",
+    "port": 80
+  },
+  "safe": {
+    "protocol": "https",
+    "port": 443
+  }
+}
