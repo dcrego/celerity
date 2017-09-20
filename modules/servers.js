@@ -21,6 +21,9 @@ exports.Server = function (name, config) {
   this.port = config.port;
   var contents = require(`../servers/${this.name}/contents.json`);
   function handleRequest (req, res) {
+    if (config.printRequestEnabled) {
+      LOG.printRequest(req);
+    }
     fs.readFile(contents["/"].bodyPath, (err, data)=>{
       if (err) {
         LOG.error(err);

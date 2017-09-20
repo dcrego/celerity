@@ -11,7 +11,7 @@ exports.Logger = function (tag) {
     return now+' '+tag+' '+message;
   }
   this.dir = function (obj) {
-    console.dir(obj, {colors: true});
+    console.dir(obj);
   }
   this.error = function (message, args) {
     arguments[0] = format(arguments[0]);
@@ -20,5 +20,13 @@ exports.Logger = function (tag) {
   this.log = function(data, args) {
     arguments[0] = format(arguments[0]);
     console.log.apply(console, arguments);
+  }
+  this.printRequest = function(req) {
+    console.log(format(req.method+' '+req.url+' HTTP/'+req.httpVersion));
+    console.group();
+    for (var key in req.headers) {
+      console.log('\t'+key+': '+req.headers[key]);
+    }
+    console.groupEnd();
   }
 }
