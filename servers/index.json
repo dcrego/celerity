@@ -1,10 +1,12 @@
 {
   "public": {
     "protocol": "http",
-    "port": 80
+    "port": 80,
+    "printRequestEnabled": true
   },
   "safe": {
     "protocol": "https",
-    "port": 443
+    "port": 443,
+    "printRequestEnabled": false
   }
 }
