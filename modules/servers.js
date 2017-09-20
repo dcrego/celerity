@@ -21,7 +21,7 @@ exports.Server = function (name, config) {
   function handleRequest (req, res) {
     fs.readFile(content.bodyPath, (err, data)=>{
       if (err) {
-        console.console.log(new Date(), err);
+        console.log(new Date(), err);
         res.writeHead(ERROR_CODE, ERROR_HEADERS);
         res.end(ERROR_BODY);
       } else {
